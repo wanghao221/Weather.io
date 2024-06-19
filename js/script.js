@@ -25,15 +25,27 @@ let weather = {
     document.querySelector(".wind").innerText =
       "风速: " + speed + " km/h";
     document.querySelector(".weather").classList.remove("loading");
-    document.body.style.backgroundImage =
-      "url('https://source.unsplash.com/1600x900/?city " + name + "')";
-    document.body.style.backgroundRepeat = "none";
-    document.body.style.backgroundSize = "100";
-    document.body.style.width = "100%";
-    document.body.style.height = "100%";
+
+    // 使用本地图片作为背景
+    const cityImages = {
+      "Shanghai": "shanghai.jpg",
+      "Wuhan": "wuhan.jpg",
+	  "Beijing": "beijing.jpg",
+	  "Changsha": "changsha.jpg",
+	  "Enshi": "enshi.jpg",
+	  "Hangzhou": "hangzhou.jpg",	  
+	  "Laifeng": "laifeng.jpg",
+	  "Qingdao": "qingdao.jpg",
+	  "Sichuan": "sichuan.jpg",
+      // 可以添加更多城市和对应图片
+    };
+
+    const imageName = cityImages[name] || "default.jpg"; // 如果城市没有对应图片，使用默认图片
+    document.body.style.backgroundImage = `url('img/${imageName}')`;
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
-
+    document.body.style.width = "100%";
+    document.body.style.height = "100%";
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
