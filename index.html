@@ -16,14 +16,14 @@
 </head>
 
 <body onload="myFunction()">
-    <div id="loading"></div>
+    <div id="loading">Loading...</div>
     <div class="cont">
         <div class="one">
             <h1>🌦️ Weather.io ☔️</h1>
         </div>
     </div>
     <div class="two">
-        <div class="card">
+        <div class="card" data-tilt>
             <div class="search">
                 <input type="text" class="search-bar" placeholder="Search" />
                 <button>
@@ -39,11 +39,11 @@
                 </button>
             </div>
             <div class="weather loading">
-				<div class="other">注意：请输入城市名拼音，首字母大写</div>
+                <div class="other">注意：请输入城市名拼音，首字母大写</div>
                 <h2 class="city">Weather in Shanghai</h2>
                 <h1 class="temp">21°C</h1>
                 <div class="flex">
-                    <img src="https://openweathermap.org/img/wn/04d.png" alt="" class="icon" />
+                    <img src="https://labfile.oss.aliyuncs.com/courses/8605/04d.png" alt="" class="icon" />
                     <div class="description">多云</div>
                 </div>
                 <div class="other">
@@ -57,13 +57,16 @@
         <div class="name"><a href="https://haiyong.site/">~ Haiyong</a></div>
     </div>
     <script>
+        console.log("Page loaded, initializing preloader...");
         var preloader = document.getElementById('loading');
         function myFunction() {
+            console.log("Hiding preloader...");
             preloader.style.display = 'none';
         }
     </script>
     <script type="text/javascript" src="js/vanilla-tilt.js"></script>
     <script type="text/javascript">
+        console.log("Initializing VanillaTilt...");
         VanillaTilt.init(document.querySelector(".card"), {
             max: 15,
             glare: true,
@@ -74,3 +77,5 @@
         VanillaTilt.init(document.querySelectorAll(".card"));
     </script>
 </body>
+
+</html>
